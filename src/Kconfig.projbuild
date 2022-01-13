@@ -1,0 +1,71 @@
+menu "Wifi Configuration"
+
+    config ESP_WIFI_SSID
+        string "WiFi SSID"
+        default "myssid"
+        help
+            SSID (network name) for the example to connect to.
+
+    config ESP_WIFI_PASSWORD
+        string "WiFi Password"
+        default "mypassword"
+        help
+            WiFi password (WPA or WPA2) for the example to use.
+
+    config ESP_MAXIMUM_RETRY
+        int "Maximum retry"
+        default 5
+        help
+            Set the Maximum retry to avoid station reconnecting to the AP unlimited when the AP is really inexistent.
+endmenu
+
+
+menu "MQTT Configuration"
+
+    config MQTT_BROKER_URL
+        string "Broker URL"
+
+    config MQTT_BROKER_USER
+        string "MQTT User"
+
+    config MQTT_BROKER_PASSWORD
+        string "MQTT Password"
+
+endmenu
+
+
+menu "SNTP Configuration"
+
+    config SNTP_TIME_SERVER
+        string "SNTP server name"
+        default "pool.ntp.org"
+        help
+            Hostname of the main SNTP server.
+
+    choice SNTP_TIME_SYNC_METHOD
+        prompt "Time synchronization method"
+        default SNTP_TIME_SYNC_METHOD_IMMED
+        help
+            Time synchronization method.
+
+        config SNTP_TIME_SYNC_METHOD_IMMED
+            bool "update time immediately when received"
+        config SNTP_TIME_SYNC_METHOD_SMOOTH
+            bool "update time with smooth method (adjtime)"
+        config SNTP_TIME_SYNC_METHOD_CUSTOM
+            bool "custom implementation"
+    endchoice
+
+endmenu
+
+menu "Pool Configuration"
+
+    config FILTER_POOL_START_HOUR
+        int "Filter pool start hour"
+        default 17
+   
+    config FILTERING_POOL_TIME
+        int "Filter pool by x hour"
+        default 2
+    
+endmenu

@@ -50,3 +50,9 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+#platformeio
+sdkconfig.esp32doit-devkit-v1
+sdkconfig.esp32doit-devkit-v1.old
+
+
